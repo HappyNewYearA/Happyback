@@ -1,7 +1,8 @@
 package com.happynewyeara.controller;
 
 import com.happynewyeara.pojo.User;
-import com.happynewyeara.service.register_service;
+import com.happynewyeara.service.login_service;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,14 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class login_controller {
     @Autowired
-    private register_service registerservice;
+    private login_service loginservice;
 
     @RequestMapping("/api/user/login")
-    public String register(User user) {
-        boolean result = registerservice.register(user);
-        if(result){
-            return "success";
-        }
-        return "false";
+    public String register(HttpServletRequest request) {
+        String phone_num = request.getParameter("phone_num");
+        String code = request.getParameter("code");
+        String result = loginservice.login(phone_num, code);
+        return result;
     }
 }

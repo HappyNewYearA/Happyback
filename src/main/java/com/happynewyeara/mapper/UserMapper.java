@@ -19,4 +19,11 @@ public interface UserMapper {
     public boolean If_phone_num_exist(String phone_num);
     //是否存在该手机号
 
+    @Select("select count(*) from user where phone_num=#{phone_num} and code=#{code}")
+    public boolean If_code_correct(String phone_num, String code);
+    //验证手机号和密码
+
+    @Select("select count(*) from user where phone_num=#{phone_num} and If_manager=true")
+    public boolean If_is_manager(String phone_num);
+    //验证密码和是否是管理员
 }
