@@ -19,6 +19,10 @@ public class register_service1 implements register_service {
     private UserMapper userMapper;
 
     public boolean register(User user) {
+        // 校验用户输入的手机号是否已经存在
+        if(userMapper.If_phone_num_exist(user.getPhone_num())){
+            return false;
+        }
         // 注册时，需要对用户输入的密码进行加密处理
         // 这里省略加密处理的代码
         Date d = new Date(System.currentTimeMillis());

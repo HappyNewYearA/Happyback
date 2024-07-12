@@ -14,5 +14,9 @@ public interface UserMapper {
 
     @Select("select * from user")
     public List<User> list();
-    
+
+    @Select("select count(*) from user where phone_num=#{phone_num}")
+    public boolean If_phone_num_exist(String phone_num);
+    //是否存在该手机号
+
 }
