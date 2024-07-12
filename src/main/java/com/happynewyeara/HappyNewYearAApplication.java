@@ -5,9 +5,5 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class HappyNewYearAApplication {
-
-    public static void main(String[] args) {
-        SpringApplication.run(HappyNewYearAApplication.class, args);
-    }
-
+    public static void main(String[] args) {SpringApplication.run(HappyNewYearAApplication.class, args);}
 }
