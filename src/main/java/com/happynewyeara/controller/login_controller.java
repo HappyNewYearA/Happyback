@@ -1,7 +1,6 @@
 package com.happynewyeara.controller;
 
 import com.happynewyeara.pojo.User;
-import com.happynewyeara.service.login_service;
 import com.happynewyeara.service.register_service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
