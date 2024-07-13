@@ -1,6 +1,7 @@
 package com.happynewyeara.mapper;
 
 import com.happynewyeara.pojo.User;
+import com.happynewyeara.pojo.temp;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -11,9 +12,7 @@ public interface UserMapper {
     @Insert("insert into user(phone_num, code,logging_status,If_manager,name,logging_time)" +
             "values (#{phone_num},#{code},#{logging_status},#{If_manager},#{name},#{logging_time})")
     public void insertUser(User user);
-
-    @Select("select * from user")
-    public List<User> list();
+    //创建用户信息
 
     @Select("select count(*) from user where phone_num=#{phone_num}")
     public boolean If_phone_num_exist(String phone_num);
@@ -26,4 +25,9 @@ public interface UserMapper {
     @Select("select count(*) from user where phone_num=#{phone_num} and If_manager=true")
     public boolean If_is_manager(String phone_num);
     //验证密码和是否是管理员
+
+    @Select("select Logging_status from user where phone_num=#{phone_num}")
+    public boolean If_logging(String phone_num);
+    //验证是否登录
+
 }

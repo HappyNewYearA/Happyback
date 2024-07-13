@@ -16,8 +16,9 @@ class HappyNewYearAApplicationTests {
 
     @Test
     public void testInsert(){
-        User user = new User("1234", "Tom", false,false,"123","123");
-        userMapper.insertUser(user);
+
+        User user=userMapper.If_logging("1234");
+        System.out.println(user.toString());
     }
 
 }
