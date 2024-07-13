@@ -1,10 +1,8 @@
 package com.happynewyeara.mapper;
 
 import com.happynewyeara.pojo.User;
-import com.happynewyeara.pojo.temp;
 import org.apache.ibatis.annotations.*;
 
-import java.util.List;
 
 @Mapper
 public interface UserMapper {
@@ -30,4 +28,7 @@ public interface UserMapper {
     public boolean If_logging(String phone_num);
     //验证是否登录
 
+    @Select("select id from user where phone_num=#{phone_num}")
+    public int get_id(String phone_num);
+    //获取用户id
 }
