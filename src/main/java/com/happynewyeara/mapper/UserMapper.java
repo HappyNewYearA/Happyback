@@ -31,4 +31,12 @@ public interface UserMapper {
     @Select("select id from user where phone_num=#{phone_num}")
     public int get_id(String phone_num);
     //获取用户id
+
+    @Select("select name from user where phone_num=#{phone_num}")
+    public String get_name(String phone_num);
+    //根据手机号获取用户昵称
+
+    @Select("select name from user where id=#{id}")
+    public String get_name_id(int id);
+    //根据id获取用户昵称
 }

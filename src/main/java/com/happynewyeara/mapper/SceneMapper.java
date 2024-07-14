@@ -16,4 +16,8 @@ public interface SceneMapper {
     public boolean If_scene_exist(String scene_name);
     //是否存在该景点
 
+    @Select("select scene_name from scene where id=#{id}")
+    public String get_scene_name(int id);
+    //获取景点名称
+
 }
