@@ -24,7 +24,7 @@ public interface UserMapper {
     public boolean If_is_manager(String phone_num);
     //验证密码和是否是管理员
 
-    @Select("select Logging_status from user where phone_num=#{phone_num}")
+    @Select("select logging_status from user where phone_num=#{phone_num}")
     public boolean If_logging(String phone_num);
     //验证是否登录
 
@@ -40,7 +40,4 @@ public interface UserMapper {
     public String get_name_id(int id);
     //根据id获取用户昵称
 
-    @Select("select logging_status from user where phone_num=#{phone_num}")
-    public boolean If_logging_status(String phone_num);
-    //获取用户登录状态
 }
