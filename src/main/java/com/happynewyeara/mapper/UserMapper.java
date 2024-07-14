@@ -40,4 +40,12 @@ public interface UserMapper {
     public String get_name_id(int id);
     //根据id获取用户昵称
 
+    @Update("update user set logging_status=true where phone_num=#{phone_num}")
+    public void update_logging_status_true(String phone_num);
+    //更新登录状态为true
+
+    @Update("update user set logging_status=false where phone_num=#{phone_num}")
+    public void update_logging_status_false(String phone_num);
+    //更新登录状态为false
+
 }

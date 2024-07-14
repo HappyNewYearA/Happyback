@@ -23,8 +23,10 @@ public class login_service1 implements login_service {
             return "NotMatch";
         }
         if(flag_1 && flag_2){
+            userMapper.update_logging_status_true(phone_num);
             return "adminsuccess";
         }
+        userMapper.update_logging_status_true(phone_num);
         return "usersuccess";
     };
 }
