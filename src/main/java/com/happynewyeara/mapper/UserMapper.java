@@ -39,4 +39,8 @@ public interface UserMapper {
     @Select("select name from user where id=#{id}")
     public String get_name_id(int id);
     //根据id获取用户昵称
+
+    @Select("select logging_status from user where phone_num=#{phone_num}")
+    public boolean If_logging_status(String phone_num);
+    //获取用户登录状态
 }
