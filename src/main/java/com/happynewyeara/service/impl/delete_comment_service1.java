@@ -33,6 +33,13 @@ public class delete_comment_service1 implements delete_comment_service {
         }
         int user_id = userMapper.get_id(phone_num);
         int scene_id = sceneMapper.get_id(scene_name);
+        if(commentMapper.If_comment_exist(user_id,scene_id,Create_time,content)==0){
+            return "CommentNotExist";
+        }
+        if(commentMapper.If_comment_exist(user_id,scene_id,Create_time,content)>1){
+            commentMapper.delete_comment(user_id,scene_id,Create_time,content);
+            return "AllDeleted";
+        }
         if(commentMapper.delete_comment(user_id,scene_id,Create_time,content)){
             return "success";
         }

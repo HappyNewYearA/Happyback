@@ -32,4 +32,8 @@ public interface CommentMapper {
     @Update("update comment set status=false" +
             " where member_id=#{member_id} and scene_id=#{scene_id} and create_time=#{create_time} and content=#{content}")
     public boolean delete_comment(int member_id, int scene_id, String create_time, String content);
+
+    @Select("select count(*) from comment " +
+            " where member_id=#{member_id} and scene_id=#{scene_id} and create_time=#{create_time} and content=#{content}")
+    public int If_comment_exist(int member_id, int scene_id, String create_time, String content);
 }
