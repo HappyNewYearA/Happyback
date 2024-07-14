@@ -25,6 +25,9 @@ public class delete_comment_service1 implements delete_comment_service {
     private CommentMapper commentMapper;
 
     public String deleteComment(String phone_num, String scene_name, String content,String Create_time) {
+        if(!userMapper.If_logging(phone_num)) {
+            return "error";
+        }
         if(!userMapper.If_phone_num_exist(phone_num)){
             return "UserNotExist";
         }

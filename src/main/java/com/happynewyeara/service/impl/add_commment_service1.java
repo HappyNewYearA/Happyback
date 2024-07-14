@@ -24,6 +24,9 @@ public class add_commment_service1 implements add_comment_service {
     private CommentMapper commentMapper;
 
     public String AddComment(String phone_num, String scene_name, String content) {
+        if(!userMapper.If_logging(phone_num)) {
+            return "error";
+        }
         if(!userMapper.If_phone_num_exist(phone_num)){
             return "UserNotExist";
         }
