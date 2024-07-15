@@ -1,5 +1,5 @@
 package com.happynewyeara.dao;
 
-public interface mute_dao {
+public interface add_img_dao {
 
 }
