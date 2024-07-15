@@ -44,6 +44,14 @@ public interface UserMapper {
     public boolean If_banned(String phone_num);
     //根据手机号获取用户禁言状态
 
+    @Update("update user set ban_status=true where phone_num=#{phone_num}")
+    public boolean mute_user(String phone_num);
+    //根据手机号禁言用户
+
+    @Select("update user set ban_status=false where phone_num=#{phone_num}")
+    public boolean de_mute_user(String phone_num);
+    //根据手机号解除用户禁言
+
     @Update("update user set logging_status=true where phone_num=#{phone_num}")
     public void update_logging_status_true(String phone_num);
     //更新登录状态为true
