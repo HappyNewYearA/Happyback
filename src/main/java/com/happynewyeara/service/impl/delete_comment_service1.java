@@ -39,6 +39,9 @@ public class delete_comment_service1 implements delete_comment_service {
         if(commentMapper.If_comment_exist(user_id,scene_id,Create_time,content)==0){
             return "CommentNotExist";
         }
+        if(userMapper.If_banned(phone_num)){
+            return "Banned";
+        }
         if(commentMapper.If_comment_exist(user_id,scene_id,Create_time,content)>1){
             commentMapper.delete_comment(user_id,scene_id,Create_time,content);
             return "AllDeleted";
