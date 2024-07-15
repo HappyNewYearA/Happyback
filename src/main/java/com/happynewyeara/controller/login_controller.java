@@ -12,7 +12,7 @@ public class login_controller {
     private login_service loginservice;
 
     @RequestMapping("/api/user/login")
-    public String register(HttpServletRequest request) {
+    public String login(HttpServletRequest request) {
         String phone_num = request.getParameter("phone_num");
         String code = request.getParameter("code");
         String result = loginservice.login(phone_num, code);
