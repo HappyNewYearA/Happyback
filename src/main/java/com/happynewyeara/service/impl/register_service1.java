@@ -24,6 +24,9 @@ public class register_service1 implements register_service {
         }
         // 注册时，需要对用户输入的密码进行加密处理
         // 这里省略加密处理的代码
+        if(user.getName()==null) {
+            user.setName(user.getPhone_num());
+        }
         Date d = new Date(System.currentTimeMillis());
         SimpleDateFormat sdf3 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String date = sdf3.format(d);

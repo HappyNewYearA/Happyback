@@ -40,6 +40,10 @@ public interface UserMapper {
     public String get_name_id(int id);
     //根据id获取用户昵称
 
+    @Select("select ban_status from user where phone_num=#{phone_num}")
+    public boolean If_banned(String phone_num);
+    //根据手机号获取用户禁言状态
+
     @Update("update user set logging_status=true where phone_num=#{phone_num}")
     public void update_logging_status_true(String phone_num);
     //更新登录状态为true

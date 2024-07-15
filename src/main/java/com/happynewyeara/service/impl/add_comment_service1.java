@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Component
-public class add_commment_service1 implements add_comment_service {
+public class add_comment_service1 implements add_comment_service {
     @Autowired
     private add_comment_dao AddCommentDao;
     @Autowired
@@ -32,6 +32,9 @@ public class add_commment_service1 implements add_comment_service {
         }
         if(!sceneMapper.If_scene_exist(scene_name)){
             return "SceneNotExist";
+        }
+        if(userMapper.If_banned(phone_num)){
+            return "Banned";
         }
         Date d = new Date(System.currentTimeMillis());
         SimpleDateFormat sdf3 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
