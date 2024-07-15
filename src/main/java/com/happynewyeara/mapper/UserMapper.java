@@ -48,7 +48,7 @@ public interface UserMapper {
     public boolean mute_user(String phone_num);
     //根据手机号禁言用户
 
-    @Select("update user set ban_status=false where phone_num=#{phone_num}")
+    @Update("update user set ban_status=false where phone_num=#{phone_num}")
     public boolean de_mute_user(String phone_num);
     //根据手机号解除用户禁言
 
