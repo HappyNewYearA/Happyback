@@ -29,6 +29,10 @@ public interface CommentMapper {
             "where member_id=#{member_id} and scene_id=#{scene_id} and status=true order by create_time desc")
     public List<comment> get_comment2(int member_id, int scene_id);
 
+    @Select("select * from comment"+
+            " where status=true  order by create_time desc")
+    public List<comment> get_all_comment();
+
     @Update("update comment set status=false" +
             " where member_id=#{member_id} and scene_id=#{scene_id} and create_time=#{create_time} and content=#{content}")
     public boolean delete_comment(int member_id, int scene_id, String create_time, String content);
