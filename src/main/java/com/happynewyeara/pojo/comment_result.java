@@ -8,8 +8,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class comment_result {
+    private Integer id;
+    private int memberId;
     private String Content;
     private String Scene_name;
     private String User_name;
     private String Create_time;
+
+
+
+
 }

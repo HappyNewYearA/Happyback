@@ -58,6 +58,10 @@ public interface UserMapper {
 
     @Update("update user set logging_status=false where phone_num=#{phone_num}")
     public void update_logging_status_false(String phone_num);
-    //更新登录状态为false
 
+
+
+    //更新登录状态为false
+    @Select("select phone_num from user where id=#{id}")
+    String getPhone(String id);
 }

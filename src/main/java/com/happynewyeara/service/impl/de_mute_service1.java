@@ -13,8 +13,9 @@ public class de_mute_service1 implements de_mute_service{
     @Autowired
     private UserMapper userMapper;
 
-    public boolean de_mute(String phone_num){
+    public boolean de_mute(String userId){
         //判断用户手机号是否存在
+        String phone_num = userMapper.getPhone(userId);
         if(!userMapper.If_phone_num_exist(phone_num)){
             return false;
         }

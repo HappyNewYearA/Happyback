@@ -3,10 +3,12 @@ package com.happynewyeara.controller;
 import com.happynewyeara.service.logout_service;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin("*")
 public class logout_controller {
     @Autowired
     private logout_service logoutservice;

@@ -37,7 +37,7 @@ public class show_user_comment_service1 implements show_user_comment_service {
         List<comment_result> comment_results = new ArrayList<>();
         for(comment Comment:comment_list){
             String scene_name = sceneMapper.get_scene_name(Comment.getScene_id());
-            comment_results.add(new comment_result(Comment.getContent(),scene_name,user_name,Comment.getCreate_time()));
+            comment_results.add(new comment_result(Comment.getId(),Comment.getMember_id(),Comment.getContent(),scene_name,user_name,Comment.getCreate_time()));
         }
         return comment_results;
     };

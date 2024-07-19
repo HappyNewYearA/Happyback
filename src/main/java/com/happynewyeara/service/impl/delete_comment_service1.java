@@ -1,5 +1,6 @@
 package com.happynewyeara.service.impl;
 
+import com.happynewyeara.common.ResultJson;
 import com.happynewyeara.dao.add_comment_dao;
 import com.happynewyeara.dao.delete_comment_dao;
 import com.happynewyeara.mapper.CommentMapper;
@@ -50,5 +51,37 @@ public class delete_comment_service1 implements delete_comment_service {
             return "success";
         }
         return "Error";
-    };
+    }
+
+    @Override
+    public ResultJson deleteComment(String phone_num, String id) {
+        try {
+            if(!userMapper.If_logging(phone_num)) {
+//                return "error";
+                return ResultJson.error("用户未登录");
+            }
+            if(!userMapper.If_phone_num_exist(phone_num)){
+//                return "UserNotExist";
+                return ResultJson.error("用户不存在");
+            }
+
+            if(userMapper.If_banned(phone_num)){
+//                return "Banned";
+                return ResultJson.error("用户被禁言");
+            }
+
+
+            if(commentMapper.delete_comment_byId(id)){
+                return ResultJson.success(null);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return ResultJson.error(null);
+
+
+    }
+
+
 }

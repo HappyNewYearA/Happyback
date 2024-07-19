@@ -30,7 +30,7 @@ public class show_all_comment_service1 implements show_all_comment_service {
         for(comment Comment:comment_list){
             String scene_name = sceneMapper.get_scene_name(Comment.getScene_id());
             String user_name = userMapper.get_name_id(Comment.getMember_id());
-            comment_results.add(new comment_result(Comment.getContent(),scene_name,user_name,Comment.getCreate_time()));
+            comment_results.add(new comment_result(Comment.getId(),Comment.getMember_id(),Comment.getContent(),scene_name,user_name,Comment.getCreate_time()));
         }
 
         return comment_results;

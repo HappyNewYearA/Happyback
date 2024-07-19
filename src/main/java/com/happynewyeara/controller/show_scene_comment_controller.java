@@ -5,12 +5,14 @@ import com.happynewyeara.pojo.Result;
 import com.happynewyeara.pojo.comment_result;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 public class show_scene_comment_controller {
     @Autowired
     private com.happynewyeara.service.show_scene_comment_service show_scene_comment_service;

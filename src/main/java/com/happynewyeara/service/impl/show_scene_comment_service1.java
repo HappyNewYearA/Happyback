@@ -25,33 +25,34 @@ public class show_scene_comment_service1 implements show_scene_comment_service {
     private SceneMapper sceneMapper;
 
     public List<comment_result> show_scene_comment(String scene_name,String phone_num) {
+        List<comment_result> comment_results = new ArrayList<>();
         if(!userMapper.If_phone_num_exist(phone_num)){
-            return null;
+            return comment_results;
         }
         if(!sceneMapper.If_scene_exist(scene_name)){
-            return null;
+            return comment_results;
         }
         int scene_id = sceneMapper.get_id(scene_name);
         int user_id = userMapper.get_id(phone_num);
-        if(!commentMapper.If_user_comment_exist(user_id)){
-            return null;
-        }
-        List<comment> comment_list1 = commentMapper.get_comment1(user_id, scene_id);
-        List<comment> comment_list2 = commentMapper.get_comment2(user_id, scene_id);
-        List<comment_result> comment_results = new ArrayList<>();
+
+       /* List<comment> comment_list1 = commentMapper.get_comment1(user_id, scene_id);
+        List<comment> comment_list2 = commentMapper.get_comment2(user_id, scene_id);*/
+
+        List<comment> comment_list2 = commentMapper.get_comment3(user_id, scene_id);
+
         for(comment Comment:comment_list2){
             String user_name = userMapper.get_name_id(Comment.getMember_id());
-            comment_results.add(new comment_result(Comment.getContent(),scene_name,user_name,Comment.getCreate_time()));
-            break;
+            comment_results.add(new comment_result(Comment.getId(),Comment.getMember_id(),Comment.getContent(),scene_name,user_name,Comment.getCreate_time()));
+
         }
-        int i=0;
-        for(comment Comment:comment_list1){
+       // int i=0;
+     /*   for(comment Comment:comment_list1){
             String user_name = userMapper.get_name_id(Comment.getMember_id());
-            comment_results.add(new comment_result(Comment.getContent(),scene_name,user_name,Comment.getCreate_time()));
+            comment_results.add(new comment_result(Comment.getId(),Comment.getMember_id(),Comment.getContent(),scene_name,user_name,Comment.getCreate_time()));
             if(++i==9){
                 break;
             }
-        }
+        }*/
         return comment_results;
     };
 }

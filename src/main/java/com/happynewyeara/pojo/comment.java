@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class comment {
+    Integer id;
     int member_id;
     int scene_id;
     String create_time;

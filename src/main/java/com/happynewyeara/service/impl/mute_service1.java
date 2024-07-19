@@ -13,13 +13,14 @@ public class mute_service1 implements mute_service{
     @Autowired
     private UserMapper userMapper;
 
-    public boolean mute(String phone_num){
+    public boolean mute(String id){
+        String phone= userMapper.getPhone(id);
         //判断用户手机号是否存在
-        if(!userMapper.If_phone_num_exist(phone_num)){
+        if(!userMapper.If_phone_num_exist(phone)){
             return false;
         }
        //禁言用户
-        userMapper.mute_user(phone_num);
+        userMapper.mute_user(phone);
         return true;
     }
 }

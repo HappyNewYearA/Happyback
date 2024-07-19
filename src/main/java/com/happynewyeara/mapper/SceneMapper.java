@@ -17,6 +17,10 @@ public interface SceneMapper {
     public boolean If_scene_exist(String scene_name);
     //是否存在该景点
 
+    @Select("select count(*) from scene where id=#{id}")
+    public boolean If_scene_exist_byId(String id);
+    //通过id判断是否存在该景点
+
     @Select("select scene_name from scene where id=#{id}")
     public String get_scene_name(int id);
     //获取景点名称

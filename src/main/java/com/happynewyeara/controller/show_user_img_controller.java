@@ -6,12 +6,14 @@ import com.happynewyeara.pojo.img_result;
 import com.happynewyeara.service.show_user_img_service;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 public class show_user_img_controller {
     @Autowired
     private show_user_img_service show_user_img_service;
